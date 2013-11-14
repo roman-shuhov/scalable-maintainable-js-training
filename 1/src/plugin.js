@@ -1,38 +1,27 @@
-/*
- * Plugin
- * 
- *
- * Copyright (c) 2013 
- * Licensed under the MIT license.
- */
-
 (function ($) {
+	var quiz = null;
+	
+	function Quiz(element) {
+		this.container = element;
+	}
+	
+	Quiz.prototype.showQuestion = function(index) {
+		$(this.element).child('.question').html(questions[i])
+	}
+	
+	Quiz.prototype.init = function() {
+		var jsonResult = $.getJSON('questions.json');
+		if (jsonResult && jsonResult.responseJson) {
+			this.questions = jsonResult.responseJSON;
+		}
+		this.current = 0;
+		showQuestion();
+	}
 
-  // Collection method.
-  $.fn.awesome = function () {
-    return this.each(function (i) {
-      // Do something awesome to each selected element.
-      $(this).html('awesome' + i);
-    });
-  };
-
-  // Static method.
-  $.awesome = function (options) {
-    // Override default options with passed-in options.
-    options = $.extend({}, $.awesome.options, options);
-    // Return something awesome.
-    return 'awesome' + options.punctuation;
-  };
-
-  // Static method default options.
-  $.awesome.options = {
-    punctuation: '.'
-  };
-
-  // Custom selector.
-  $.expr[':'].awesome = function (elem) {
-    // Is this element awesome?
-    return $(elem).text().indexOf('awesome') !== -1;
-  };
+  	$.fn.quiz = function () {
+		if (!quiz) {
+			quiz = new Quiz(this);
+		}
+	};
 
 }(jQuery));

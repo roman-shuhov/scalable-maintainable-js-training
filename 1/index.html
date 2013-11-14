@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Plugin Test Suite</title>
+	<!-- Load local jQuery. -->
+	<script src="bower_components/jquery/jquery.min.js"></script>
+	<script src="src/plugin.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function() {
+			$('#quiz-container').quiz();			
+		});
+	</script>
+</head>
+<body>
+	<div id="quiz-container">
+		<div class="question-title"></div>
+		<div class="asnwers-list"></div>
+	</div>
+</body>
+</html>
