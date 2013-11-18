@@ -5,17 +5,19 @@
 	<title>Plugin Test Suite</title>
 	<!-- Load local jQuery. -->
 	<script src="bower_components/jquery/jquery.min.js"></script>
-	<script src="src/plugin.js" type="text/javascript"></script>
+	<script src="src/quiz.js" type="text/javascript"></script>
+	<script src="src/results.js" type="text/javascript"></script>
 	<script>
 		$(document).ready(function() {
-			$('#quiz-container').quiz();			
+			$('#quiz-container').quiz({
+				resultComponent: 'results'
+			});
+			$('#quiz-container2').quiz();
 		});
 	</script>
 </head>
 <body>
-	<div id="quiz-container">
-		<div class="question-title"></div>
-		<div class="asnwers-list"></div>
-	</div>
+	<div id="quiz-container"></div>
+	<div id="quiz-container2"></div>
 </body>
 </html>
